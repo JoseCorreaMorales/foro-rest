@@ -14,8 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        //los seeeder deben ser en el orden en el que se crearon la mograciones (tablas)
          //$this->call('UsersTableSeeder');
-         $this->call([UsersTableSeeders::class]);
+         //$this->call([UsersTableSeeders::class]);
+         $this->call([
+            UsersTableSeeder::class,
+            TopicsTableSeeder::class,
+            PostsTableSeeder::class
+        ]);        
 
     }
 }
