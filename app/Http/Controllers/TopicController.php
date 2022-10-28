@@ -2,22 +2,19 @@
 namespace App\Http\Controllers;
 use App\Models\Topic;
 use Illuminate\Http\Request;
-class TopicController extends Controller
-{
+class TopicController extends Controller {
     public function index()
     {
         return Topic::paginate();      
     }
-    public function show($id)
-    {
+    public function show($id) {
         $topic = Topic::find($id);
         if (!$topic) {
             return response()->json(["message" => "failed"], 404);
         }
         return $topic;
     }
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $topic = new Topic();/* regsitro topic vacio */
         $r = $topic->fill($request->all())->save();/* llenar el obj topic con el request y hacer el insert*/
         if (!$r) {
@@ -25,8 +22,7 @@ class TopicController extends Controller
         }
         return $topic;
     }
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id)  {
         $topic = topic::find($id);
         if (!$topic) {
             return response()->json(["mesagge"=>"failed"], 404);
@@ -38,8 +34,7 @@ class TopicController extends Controller
         }
         return $topic;
     }
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $topic = topic::find($id);
         if (!$topic) {
             return response()->json(["message"=>"failed"], 404);
