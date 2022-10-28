@@ -1,24 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use Illuminate\Http\Request as HttpRequest;
-use Illuminate\Support\Facades\DB;
-use PHPUnit\Util\Json;
-
-//el mismo nombre que tiene el modelo + controller
 class TopicController extends Controller
 {
-
     public function index()
     {
-        return Topic::paginate();
-        //return DB::table('topic')->select("title");
+        return Topic::paginate();      
     }
-
-
     public function show($id)
     {
         $topic = Topic::find($id);
@@ -27,7 +16,6 @@ class TopicController extends Controller
         }
         return $topic;
     }
-
     public function store(Request $request)
     {
         $topic = new Topic();/* regsitro topic vacio */
@@ -37,7 +25,6 @@ class TopicController extends Controller
         }
         return $topic;
     }
-
     public function update(Request $request, $id)
     {
         $topic = topic::find($id);
@@ -51,7 +38,6 @@ class TopicController extends Controller
         }
         return $topic;
     }
-
     public function destroy($id)
     {
         $topic = topic::find($id);
@@ -59,6 +45,4 @@ class TopicController extends Controller
             return response()->json(["message"=>"failed"], 404);
         }
         $topic->delete();
-        return response()->json(["message"=>"success"]);
-    }
-}
+        return response()->json(["message"=>"success"]);}}
