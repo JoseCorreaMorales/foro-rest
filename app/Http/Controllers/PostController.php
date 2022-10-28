@@ -2,16 +2,10 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
-class PostController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+class PostController extends Controller {
+    public function index()
     {
-        //
+        return Post::paginate();
     }
     public function show($id)
     {
