@@ -59,7 +59,7 @@ each route has the following methods:
 ```bash
 http://localhost:8000/login
 ```
-2. Send a **GET** request with the following body
+2. In postman go to **Body -> raw -> JSON** and send a **GET** request with the following body
 ```json
 {
     "username": "string",
@@ -67,6 +67,22 @@ http://localhost:8000/login
 }
 ```
 
+
+
+#### Respose example
+```json
+{
+    "user": {
+        "id": 1,
+        "name": "Admin",
+        "email": "admin@domain.com",
+        "username": "admin",
+        "avatar": "https://thiscatdoesnotexist.com",
+        "role": "admin"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJ2bWYydnpyMzJTTTB5R3hhQWxZOW51ckJVQW44eEUyV21mN01hcUdjZ05ZPSIsImlhdCI6MTY5NDIwNDMwOSwibmJmIjoxNjk0MjA0MzA5LCJleHAiOjE2OTQyMDQzMDksImRhdGEiOnsiaWQiOjEsIm5hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AYWxnby5jb20iLCJ1c2VybmFtZSI6ImFkbWluIiwiYXZhdGFyIjoiaHR0cHM6XC9cL3RoaXNjYXRkb2Vzbm90ZXhpc3QuY29tIiwicm9sZSI6ImFkbWluIn19.uM3f7VLLmjxuKW9SdWM0WbWS-I8nH4uJh-4iVUsttDs"
+}
+```
 ## Useful commands
 
 ### 1. Create a project
